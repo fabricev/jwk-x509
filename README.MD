@@ -1,12 +1,14 @@
 ## Motivation
 
-While playinf with Dex and using jwt.io to inspect the obtained tokens, I struggled to get my tokens validated easily. Looking around, found https://play.golang.org/p/wVusucNGDI and modified it to get a simple command line tool that can pe piped easily.
+While playing with [Dex](https://dexidp.io/) and using [jwt.io](https://jwt.io) to inspect the obtained tokens, I struggled to get my tokens validated.
+
+Looking around, found https://play.golang.org/p/wVusucNGDI and modified it to get a simple command line tool that can pe piped easily with jq.
 
 ```
 go build
 ```
 
-Usage with dex:
+Usage with Dex keys:
 
 ```shell
 $ curl -s https://dex.tools.local/keys | jq '.keys[] | select(.kid == "0ac8777d24a570e8fb8cbdb5c98e030aebe7b3be")' | ./jwk-x509
